@@ -1,0 +1,35 @@
+ <!-- Hisham --> 
+{% extends 'base.html' %} <!-- Extending base layout to ensure consistency across the site -->
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Register</h1> <!-- Heading for the registration page -->
+
+    <!-- Flash messages display logic -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert alert-danger">
+                <!-- Loop through each message and display it on the page -->
+                {% for message in messages %}
+                    {{ message }}<br>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Registration form starts here -->
+    <form method="post" action="{{ url_for('register') }}" class="form">
+        <div class="form-group">
+            <label for="username">Username</label> <!-- Label for username field -->
+            <input type="text" id="username" name="username" class="form-control" required>
+            <!-- Input field for username, required to fill to proceed -->
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label> <!-- Label for password field -->
+            <input type="password" id="password" name="password" class="form-control" required>
+            <!-- Input field for password, required and hidden from view -->
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button> <!-- Button to submit the form -->
+    </form>
+</div>
+{% endblock %}

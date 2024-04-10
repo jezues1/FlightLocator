@@ -1,0 +1,33 @@
+ <!-- Hisham --> 
+{% extends 'base.html' %} <!-- Extends the base layout, inheriting its structure and resources -->
+
+{% block content %}
+<div class="container mt-4">
+  <h1>Login</h1> <!-- Page heading for the login screen -->
+  <!-- Flash message display block -->
+  {% with messages = get_flashed_messages() %} 
+  {% if messages %}
+  <div class="alert alert-danger">
+    <!-- Iterates through and displays all flash messages -->
+    {% for message in messages %} 
+    {{ message }}<br />
+    {% endfor %}
+  </div>
+  {% endif %} 
+  {% endwith %}
+  <!-- Login form starts here -->
+  <form method="post" action="{{ url_for('login') }}" class="form">
+    <div class="form-group">
+      <label for="username">Username</label> <!-- Label for the username field -->
+      <input type="text" id="username" name="username" class="form-control" required>
+      <!-- Username input field; 'required' means it must be filled out to submit the form -->
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label> <!-- Label for the password field -->
+      <input type="password" id="password" name="password" class="form-control" required>
+      <!-- Password input field; hides the text entered and is also required -->
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button> <!-- Submit button for the form -->
+  </form>
+</div>
+{% endblock %}

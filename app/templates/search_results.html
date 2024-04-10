@@ -1,0 +1,42 @@
+ <!-- Hisham --> 
+{% extends 'base.html' %} <!-- Inherit the base layout to maintain consistent styling and structure -->
+
+{% block content %}
+<div class="container mt-4">
+    <!-- Dynamic heading that includes search parameters -->
+    <h1>Search Results for {{ origin }} to {{ destination }}</h1>
+    <div class="row">
+        {% if flights %}
+            <!-- Loop through each flight in the results -->
+            {% for flight in flights %}
+                <div class="col-md-4">
+                    <!-- Each flight is presented in a card -->
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- Flight number and details are displayed here -->
+                            <h5 class="card-title">Flight {{ flight.flightNumber }}</h5>
+                            <p class="card-text">
+                                <strong>Departure:</strong> {{ flight.departureTime }}<br>
+                                <strong>Arrival:</strong> {{ flight.arrivalTime }}<br>
+                                <strong>Duration:</strong> {{ flight.duration }}<br>
+                                <strong>Stops:</strong> {{ flight.stopCount }}<br>
+                                <strong>Price:</strong> {{ flight.price }}
+                            </p>
+                            <!-- Link to book the flight -->
+                            <a href="{{ flight.deepLink }}" class="btn btn-primary">Book Now</a>
+                            <!-- Form to add the flight to the user's favorites -->
+                            <form action="{{ url_for('add_favorite', flight_id=flight.flightNumber) }}" method="post" style="display: inline;">
+                                <input type="hidden" name="flight_id" value="{{ flight.flightNumber }}">
+                                <button type="submit" class="btn btn-secondary">Add to Favorites</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <!-- Message displayed when no flights are found -->
+            <p>No flights found.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

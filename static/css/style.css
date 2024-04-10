@@ -1,0 +1,77 @@
+/* Hisham */
+
+body, html {
+    height: 100%; /* Ensure html and body cover full height */
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    color: #212529;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #007bff;
+}
+
+.nav-link {
+    color: #ffffff !important;
+}
+
+/* Main container adjusted for flex layout and space management */
+.main, .container {
+    padding: 20px;
+    margin-top: 20px;
+    flex-grow: 1; /* Flex grow to use available space */
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100% - 110px); /* Adjust min-height to compensate for nav and footer, 110px is an estimated combined height */
+}
+
+/* form group margin for consistency */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Card layout improvements */
+.card {
+    margin: 20px; /* More space around cards */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px; /* Padding within cards */
+    flex-grow: 1; /* Flex grow for cards to take up space */
+}
+
+/* Card title and text styling */
+.card-title {
+    font-size: 1.25rem;
+}
+
+.card-text {
+    font-size: 0.9rem;
+}
+
+/* Button styles */
+.btn-primary {
+    background-color: #007bff;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+}
+
+/* Footer styling for non-fixed position */
+footer {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto; /* Pushes footer to bottom */
+    width: 100%;
+    position: relative; /* relative */
+}
+
+/* Media query for mobile responsiveness */
+@media (max-width: 768px) {
+    .card {
+        margin: 10px; /* Reduced margin on smaller screens */
+    }
+}

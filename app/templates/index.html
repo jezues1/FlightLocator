@@ -1,0 +1,24 @@
+{% extends 'base.html' %} <!-- Extends the base layout, inheriting its structure and resources -->
+
+{% block content %}
+    <h1>Welcome to Flight Locator</h1>
+    <!-- Form for searching flights, POST method is used to send data to the server -->
+    <form action="{{ url_for('search') }}" method="post" class="mt-3">
+        <div class="form-group">
+            <label for="origin">Origin</label> <!-- Label for the origin input field -->
+            <input type="text" name="origin" id="origin" placeholder="Origin" class="form-control">
+            <!-- Input field for flight origin, with a placeholder -->
+        </div>
+        <div class="form-group">
+            <label for="destination">Destination</label> <!-- Label for the destination input field -->
+            <input type="text" name="destination" id="destination" placeholder="Destination" class="form-control">
+            <!-- Input field for flight destination, with a placeholder -->
+        </div>
+        <div class="form-group">
+            <label for="date">Date</label> <!-- Label for the date input field -->
+            <input type="date" name="date" id="date" class="form-control">
+            <!-- Input field for selecting a date, uses a date picker interface -->
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button> <!-- Submit button for the form -->
+    </form>
+{% endblock %}
