@@ -4,6 +4,6 @@
         {"src": "__init__.py", "use": "@vercel/python"}
     ],
     "routes": [
-        { "rewrites": [{ "source": "/(.*)", "destination": "/" }] }
+        {"src": "/(.*)", "dest": "__init__.py"}
     ]
 }
